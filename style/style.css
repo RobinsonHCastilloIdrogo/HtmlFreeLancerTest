@@ -1,0 +1,217 @@
+:root {
+  --blanco: #ffffff;
+  --oscuro: #212121;
+  --primario: #ffc107;
+  --secundario: #0097a7;
+  --gris: #757575;
+
+  --fuente-principal-h1: 3.8rem;
+  --fuente-principal-h2: 2.8rem;
+  --fuente-principal-h3: 1.8rem;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+/** Modelo Caja **/
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+body {
+  font-size: 16px; /* 1rem = 10px */
+  font-family: "Krub", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  background-image: linear-gradient(
+    to bottom,
+    #dfe9f3 0%,
+    var(--blanco) 100%
+  ); /*Degradado Fondo*/
+}
+
+h1 {
+  font-size: var(--fuente-principal-h1);
+}
+
+h2 {
+  font-size: var(--fuente-principal-h2);
+}
+
+h3 {
+  font-size: var(--fuente-principal-h3);
+}
+
+h1,
+h2,
+h3 {
+  text-align: center;
+}
+
+.title {
+  text-align: center;
+  font-size: var(--fuente-principal-h1);
+}
+
+.title span {
+  font-size: 2rem;
+}
+
+.contenedor {
+  max-width: 120rem; /** Adaptar el espacio mediante la minimizacion de la Pantalla**/
+  margin: 0 auto 0 auto;
+}
+
+.boton {
+  background-color: #0097a7;
+  color: var(--blanco);
+  text-decoration: none;
+  padding: 1rem 3rem;
+  margin-top: 1rem;
+  font-size: 2rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  border-radius: 1rem;
+  width: 90%;
+  text-align: center;
+}
+
+@media (min-width: 480px) {
+  .boton {
+    width: auto;
+  }
+}
+
+.sombra {
+  -webkit-box-shadow: 2px 3px 13px 0px rgba(107, 107, 107, 1);
+  -moz-box-shadow: 2px 3px 13px 0px rgba(107, 107, 107, 1);
+  box-shadow: 2px 3px 13px 0px rgba(107, 107, 107, 1);
+  background-color: var(--blanco);
+  padding: 2rem;
+  border-radius: 1.5rem;
+}
+
+.nav-bg {
+  background-color: var(--secundario);
+}
+
+.navegacion-principal {
+  display: flex; /** FlexBox **/
+  flex-direction: column;
+  justify-content: space-between; /** Adaptar Espacio **/
+}
+
+.navegacion-principal a {
+  display: block; /**display: block  text-align: center; centrar la barra adaptativa al reducirla**/
+  text-align: center;
+  color: var(--blanco);
+  text-decoration: none;
+  font-size: 2rem;
+  font-weight: 700;
+  padding: 1rem; /** padding: 1rem 1rem 1rem 1rem**/
+}
+
+.navegacion-principal a:hover {
+  background-color: var(--primario);
+  color: var(--oscuro);
+}
+
+@media (min-width: 768px) {
+  .navegacion-principal {
+    flex-direction: row;
+  }
+}
+
+.hero {
+  background-image: url(../ImG/hero.jpg);
+  background-repeat: no-repeat; /** Para que no se repita la imagen en el backgorund**/
+  background-size: cover; /**  Adaptar la imagen en el tamaño establecido en la pagina**/
+  height: 410px;
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.contenido-hero {
+  position: absolute;
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.7
+  ); /** Control de la Transparencia "rgba(0,0,0, 0.7);"**/
+  /**background-color: rgb( 0 0 0 /70%); ACTUALMENTE MEJOR - OTRA FORMA DE HACERLO**/
+  width: 100%;
+  height: 100%;
+  /** Alinear Vertial Y Horizontalmente **/
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.contenido-hero h2,
+.contenido-hero p {
+  color: var(--blanco);
+}
+.ubicacion {
+  display: flex;
+  align-items: flex-end;
+}
+
+@media (min-width: 768px) {
+  .servicios {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 1rem;
+    /** grid-template-columns: 33.3% 33.3% 33.3%;  Creación de Tres Columnas Versión Larga**/
+    /** Versión mas Corta = grid-template-columns: 1fr 1fr 1fr; **/
+    /** Versión mucho mas Corta = grid-template-columns: repeat(3, 1fr); **/
+    /**
+        grid-template-columns: 30rem 30rem;
+        grid-template-rows: 20rem 80rem;
+        **/
+
+    /** VERSION MÁS CORTA
+        grid: 20rem 80rem / 30rem 30rem;
+        **/
+  }
+}
+
+/* Cambios para centrar los íconos y el contenido */
+.servicios section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+}
+.servicios svg {
+  margin-bottom: 1rem; /* Añade espacio entre el ícono y el texto */
+}
+
+/** Buen Enfoque
+body{
+    background-color: #FFC107;
+    font-size: 3rem;
+}
+
+@media (min-width: 480px){
+    body{
+        background-color: blue;
+    }
+}
+
+@media (min-width: 768px){
+    body{
+        background-color: blanchedalmond;
+    }
+} **/
+
+/**"Crea un Media Querie":{
+    "prefix": "mq",
+    "body": "@media (min-width: $1){\n    $2\n}"
+}  "ESTO ES COMO UNA INSTRUCCION DONDE AL AGREGALO AL ARCHIVO css.json, se hace más facil la creacion de Media Querie(mq + tab)"**/
